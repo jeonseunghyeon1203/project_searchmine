@@ -1,0 +1,27 @@
+지뢰찾기 게임 
+처음시작화면: 
+1번메뉴: 실행 
+2번메뉴:난이도설정
+3번메뉴:하드코어모드 
+4번메뉴:게임룰설명
+5번메뉴:개발자크레딧
+6번메뉴:게임리셋 
+7번메뉴:게임 종료 
+
+게임방법: 
+플래그를 세워 모든 지뢰를 찾으면 게임클리어 
+시간,찾은지뢰개수,클리어한 스테이지개수,목숨개수를 보여주고 다음스테이지로 넘어감
+
+원하는 위치(x,y)를 오픈(s)하거나 플래그(f)를 세울 수 있다
+
+구조체를 사용해 맵에대한 정보와 각 좌표값들이 가진 정보들을 저장함
+순환호출을 사용해 안전지역 오픈시 주위 모든안전지역 동시오픈하도록 설정함
+2차원 배열로 x y좌표를 입력받는 맵을 설정함 
+
+사용한 함수 16개 
+주요함수 4개 
+-void startGame(GameSettings settings, int hardcoreMode);   //게임시작함수
+-void initializeMap(Cell map[MAX_HEIGHT][MAX_WIDTH], GameSettings settings);   //맵 새로만드는 함수
+-void displayMap(Cell map[MAX_HEIGHT][MAX_WIDTH], GameSettings settings, int stage, int lives, int score, time_t startTime, int remainingMines);  //맵 오픈하여 표시하는 함수
+-void revealCell(Cell map[MAX_HEIGHT][MAX_WIDTH], int x, int y, GameSettings settings, int* score, int* lives, int* remainingMines, int* totalMinesFound);  //순환호출을 통해 안전지역 동시오픈하는 함수
+
